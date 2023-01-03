@@ -15,7 +15,7 @@
 <body>
 <form action="/product">
     <h1>LIST PRODUCT</h1>
-    <input type="text" name="idFind" value="id">
+    <input type="text" name="name" value="name">
     <button type="submit" name="action" value="find">FIND PRODUCT</button>
     <br>
     <table class="table table-dark">

@@ -38,6 +38,10 @@
         </div>
     </div>
 </nav>
+<dev>
+    <img src="https://vcdn1-vnexpress.vnecdn.net/2022/08/24/honda-vision-1661328323-166132-5134-7088-1661328468.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=TW3_Pli6mVGPdcEbyKGUjA"
+    >
+</dev>
 </body>
 <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js">
 </html>

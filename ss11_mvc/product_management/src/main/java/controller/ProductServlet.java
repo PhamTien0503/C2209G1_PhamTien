@@ -1,9 +1,7 @@
 package controller;
-
 import model.Product;
 import service.IProductService;
 import service.iplm.ProductService;
-
 import java.io.*;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -63,10 +61,15 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showFindProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("idFind"));
-        Product product = productService.findById(id);
+        String name = request.getParameter("name");
+        Product product = productService.findByName(name);
         request.setAttribute("product", product);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/find.jsp");
+        RequestDispatcher requestDispatcher;
+        if (product == null) {
+            requestDispatcher = request.getRequestDispatcher("view/error404.jsp");
+        } else {
+            requestDispatcher = request.getRequestDispatcher("view/find.jsp");
+        }
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -96,7 +99,7 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("product", product);
         RequestDispatcher requestDispatcher;
         if (product == null) {
-            requestDispatcher = request.getRequestDispatcher("error404.jsp");
+            requestDispatcher = request.getRequestDispatcher("view/error404.jsp");
         } else {
             requestDispatcher = request.getRequestDispatcher("view/remove.jsp");
         }
@@ -125,7 +128,7 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("product", product);
         RequestDispatcher requestDispatcher;
         if (product == null) {
-            requestDispatcher = request.getRequestDispatcher("error404.jsp");
+            requestDispatcher = request.getRequestDispatcher("view/error404.jsp");
         } else {
             requestDispatcher = request.getRequestDispatcher("view/update.jsp");
         }

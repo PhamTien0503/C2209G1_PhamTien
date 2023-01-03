@@ -13,8 +13,9 @@
     <style>
         form {
             margin: 0 auto;
-            height: 500px;
-            width: 800px;
+            height: 400px;
+            width: 500px;
+            border: solid #0f5132;
         }
 
         label {

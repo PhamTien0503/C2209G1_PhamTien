@@ -10,31 +10,31 @@
 <html>
 <head>
     <title>View detail product</title>
-  <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css">
 </head>
 <body>
-  <h1>DETAIL PRODUCT</h1>
-  <a href="/product">Comeback product list</a>
-  <table class="table table-dark">
+<h1>DETAIL PRODUCT</h1>
+<a href="/product">Comeback product list</a>
+<table class="table table-dark">
     <thead>
     <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Cost</th>
-      <th scope="col">Description</th>
-      <th scope="col">Producer</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Description</th>
+        <th scope="col">Producer</th>
     </tr>
     </thead>
     <tbody>
-      <tr>
+    <tr>
         <td>${product.id}</td>
         <td>${product.name}</td>
         <td>${product.cost}</td>
         <td>${product.description}</td>
         <td>${product.producer}</td>
-      </tr>
+    </tr>
     </tbody>
-  </table>
+</table>
 </body>
 <link rel="stylesheet" href="bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.js">
 </html>
