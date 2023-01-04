@@ -1,5 +1,5 @@
 create database users_management;
-use susers_management;
+use users_management;
  
  create table users (
  id int(3) not null auto_increment primary key,
@@ -13,3 +13,7 @@ use susers_management;
  
  insert into users (name,email,country)
  values ('Kante','kante@che.uk','Kenia');
+
+ select * from users;
+ 
+ select * from users order by name;
