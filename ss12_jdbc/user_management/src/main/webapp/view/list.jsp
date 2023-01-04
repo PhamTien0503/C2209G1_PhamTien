@@ -15,6 +15,7 @@
 <body>
 <h1>LIST USER</h1>
 <button type="submit" class="btn-outline-info m-2"><a href="/User?action=add">ADD NEW USER</a></button><br>
+<button type="submit" class="btn-outline-warning m-2"><a href="/User?action=sort">SORT BY NAME</a></button><br>
 <form action="/User">
 <input type="text" name="country" value="country">
 <button type="submit" class="btn-outline-success m-2" name="action" value="search"><a>SEARCH USER</a></button><br>

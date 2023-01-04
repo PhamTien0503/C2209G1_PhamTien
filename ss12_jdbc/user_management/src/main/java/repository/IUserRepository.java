@@ -10,6 +10,6 @@ public interface IUserRepository {
     List<User> selectAllUser();
     boolean deleteUser(int id);
     boolean updateUser(User user);
-    User searchByCountry(String country);
+    List<User> searchByCountry(String country);
     List<User> sortByName();
 }

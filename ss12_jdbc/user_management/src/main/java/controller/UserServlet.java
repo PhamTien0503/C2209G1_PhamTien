@@ -33,15 +33,30 @@ public class UserServlet extends HttpServlet {
             case "search":
                 searchUser(request, response);
                 break;
+            case "sort":
+                sortUser(request, response);
+                break;
             default:
                 listUser(request, response);
         }
     }
 
+    private void sortUser(HttpServletRequest request, HttpServletResponse response) {
+        List<User>userList=userService.sortByName();
+        request.setAttribute("userList",userList);
+        try {
+            request.getRequestDispatcher("view/sort_by_name.jsp").forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void searchUser(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
-        User user=userService.searchByCountry(country);
-        request.setAttribute("user",user);
+        List<User>userList=userService.searchByCountry(country);
+        request.setAttribute("userList",userList);
         try {
             request.getRequestDispatcher("view/find_by_country.jsp").forward(request,response);
         } catch (ServletException e) {
