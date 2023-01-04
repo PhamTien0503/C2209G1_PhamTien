@@ -45,7 +45,7 @@
     <input type="text" name="description" value="${product.getDescription()}"><br>
 
     <lable>Producer</lable>
-    <input type="text" name="producer"><br>
+    <input type="text" name="producer" value="${product.getProducer()}"><br>
 
     <button class="btn btn-danger" type="submit " name="action" value="update">UPDATE</button>
 </form>
