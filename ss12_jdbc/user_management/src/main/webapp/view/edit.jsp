@@ -21,7 +21,6 @@
     <input type="text" name="email" value="${user.email}"><br>
     <p>Country</p>
     <input type="text" name="country" value="${user.country}"><br><br>
-
     <button type="submit" name="action" value="edit" >EDIT</button>
 </form>
 </body>

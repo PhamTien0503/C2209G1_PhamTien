@@ -14,11 +14,14 @@
 </head>
 <body>
 <h1>LIST USER</h1>
-<button type="submit" class="btn-outline-info m-2"><a href="/User?action=add">ADD NEW USER</a></button><br>
-<button type="submit" class="btn-outline-warning m-2"><a href="/User?action=sort">SORT BY NAME</a></button><br>
+<button type="submit" class="btn-outline-info m-2"><a href="/User?action=add">ADD NEW USER</a></button>
+<br>
+<button type="submit" class="btn-outline-warning m-2"><a href="/User?action=sort">SORT BY NAME</a></button>
+<br>
 <form action="/User">
-<input type="text" name="country" value="country">
-<button type="submit" class="btn-outline-success m-2" name="action" value="search"><a>SEARCH USER</a></button><br>
+    <input type="text" name="country" value="country">
+    <button type="submit" class="btn-outline-success m-2" name="action" value="search"><a>SEARCH USER</a></button>
+    <br>
 </form>
 <table class="table table-active">
     <tr class="table-dark">
@@ -35,8 +38,12 @@
             <td>${user.name}</td>
             <td>${user.email}</td>
             <td>${user.country}</td>
-            <td><button><a href="/User?action=edit&id=${user.id}">edit</a></button></td>
-            <td><button><a href="/User?action=delete&id=${user.id}">delete</a></button></td>
+            <td>
+                <button><a href="/User?action=edit&id=${user.id}">edit</a></button>
+            </td>
+            <td>
+                <button><a href="/User?action=delete&id=${user.id}">delete</a></button>
+            </td>
 
         </tr>
     </c:forEach>

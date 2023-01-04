@@ -42,10 +42,10 @@ public class UserServlet extends HttpServlet {
     }
 
     private void sortUser(HttpServletRequest request, HttpServletResponse response) {
-        List<User>userList=userService.sortByName();
-        request.setAttribute("userList",userList);
+        List<User> userList = userService.sortByName();
+        request.setAttribute("userList", userList);
         try {
-            request.getRequestDispatcher("view/sort_by_name.jsp").forward(request,response);
+            request.getRequestDispatcher("view/sort_by_name.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -55,10 +55,10 @@ public class UserServlet extends HttpServlet {
 
     private void searchUser(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
-        List<User>userList=userService.searchByCountry(country);
-        request.setAttribute("userList",userList);
+        List<User> userList = userService.searchByCountry(country);
+        request.setAttribute("userList", userList);
         try {
-            request.getRequestDispatcher("view/find_by_country.jsp").forward(request,response);
+            request.getRequestDispatcher("view/find_by_country.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -68,10 +68,10 @@ public class UserServlet extends HttpServlet {
 
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user=userService.selectUser(id);
-        request.setAttribute("user",user);
+        User user = userService.selectUser(id);
+        request.setAttribute("user", user);
         try {
-            request.getRequestDispatcher("view/delete.jsp").forward(request,response);
+            request.getRequestDispatcher("view/delete.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -79,13 +79,12 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user=userService.selectUser(id);
-        request.setAttribute("user",user);
+        User user = userService.selectUser(id);
+        request.setAttribute("user", user);
         try {
-            request.getRequestDispatcher("view/edit.jsp").forward(request,response);
+            request.getRequestDispatcher("view/edit.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -141,7 +140,7 @@ public class UserServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         userService.deleteUser(id);
         try {
-            request.setAttribute("mess","Delete user success");
+            request.setAttribute("mess", "Delete user success");
             request.getRequestDispatcher("view/delete.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
@@ -155,17 +154,16 @@ public class UserServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
-        User user=new User(id, name, email, country);
+        User user = new User(id, name, email, country);
         userService.updateUser(user);
         try {
-            request.setAttribute("mess","Update user success");
+            request.setAttribute("mess", "Update user success");
             request.getRequestDispatcher("view/edit.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private void addUser(HttpServletRequest request, HttpServletResponse response) {
@@ -176,13 +174,12 @@ public class UserServlet extends HttpServlet {
         User user = new User(id, name, email, country);
         userService.addUser(user);
         try {
-            request.setAttribute("mess","Add new user success");
+            request.setAttribute("mess", "Add new user success");
             request.getRequestDispatcher("view/add.jsp").forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

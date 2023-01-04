@@ -8,7 +8,7 @@ import service.IUserService;
 import java.util.List;
 
 public class UserService implements IUserService {
-    private final IUserRepository userRepository=new UserRepository();
+    private final IUserRepository userRepository = new UserRepository();
 
     @Override
     public List<User> selectAllUser() {
