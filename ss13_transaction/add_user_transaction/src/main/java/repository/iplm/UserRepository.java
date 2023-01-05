@@ -40,18 +40,28 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public void addUser(User user) {
+    public String addUserTransaction(User user) {
+        String mess="";
         Connection connection = BaseRepository.getConnectDB();
         try {
+            connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
-            preparedStatement.executeUpdate();
+            int rowAdd=preparedStatement.executeUpdate();
+            if (rowAdd>0){
+                connection.commit();
+                mess="Add transaction success!!!!";
+            }else {
+                connection.rollback();
+                mess="Add transaction failed";
+            }
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return mess;
     }
 
     @Override
