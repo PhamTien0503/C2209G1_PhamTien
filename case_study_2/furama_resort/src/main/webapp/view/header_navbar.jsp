@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 07-01-23
+  Time: 4:28 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Furama Resort</title>
+    <title>Title</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
-    <style>
-        p {
-            margin: 0 auto;
-            text-align: justify;
-        }
-    </style>
 </head>
 <body>
 <div>
-    <div class="row bg-white  ">
+    <div class="row bg-white ">
         <div class="col-md-2 ">
             <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png " alt="Logo">
         </div>
@@ -21,7 +21,7 @@
             <img src="https://smartdata.tonytemplates.com/bestel/wp-content/uploads/2018/05/widget-tripadvisor-logo.png"
                  style="height: 25%;width: 70%" alt="Logo">
             <img src="https://furamavietnam.com/wp-content/uploads/2018/08/widget-tripadvisor-rating.png"
-                 style="height: 30%;width: 40%" alt="logo">
+                 style="height: 30%;width: 70%" alt="logo">
             <p><i> 2746 reviews</i></p>
         </div>
         <div class="col-md-3  row">
@@ -40,7 +40,7 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-info">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Home</a>
+                    <a class="navbar-brand" href="/home">Home</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -79,55 +79,6 @@
                     </div>
                 </div>
             </nav>
-        </div>
-        <div class="row">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner ">
-                    <div class="carousel-item active  ">
-                        <img src="https://duansungroup.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2022/08/bai-sao-phu-quoc-sun-star-fish.jpg.webp"
-                             class="d-block w-100 " alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/62371531.jpg?k=fb1828d64f739b526944dcb487699e4625ad8799986e0e4ef5c2c930dcf39b6c&o=&hp=1"
-                             class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="row bg-warning">
-        <div class="col-md-6">
-            <h3> Liên hệ</h3>
-            <h6>
-                103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam</h6>
-            <h6>Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666</h6>
-            <h6> Email: reservation@furamavietnam.com * www.furamavietnam.com GDS Codes: Amadeus-GD DADFUR,</h6>
-            <h6> Galileo/Apollo-GD 16236, Sabre-GD 032771, Worldspan- GD DADFU</h6>
-            </h1>
-        </div>
-        <div class="col-md-4">
-            <h3> Hướng Dẫn Di Chuyển</h3>
-            <h6>
-                Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những điểm đến hấp dẫn nhất Châu Á.
-                Địa chỉ chi tiết như bản đồ bên
-            </h6>
-        </div>
-        <div class="col-md-2">
-            <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.491772817447!2d108.24887941400776!3d16.039950744484408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31420fdbc8cc38ef%3A0x9a6a3e31121225d2!2sFurama%20Resort%20Danang!5e0!3m2!1svi!2s!4v1672327410548!5m2!1svi!2s"
-                        width="200" height="150" style="border:1px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
         </div>
     </div>
 </div>
