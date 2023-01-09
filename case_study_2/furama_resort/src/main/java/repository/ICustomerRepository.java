@@ -10,5 +10,5 @@ public interface ICustomerRepository {
     boolean save(Customer customer);
     boolean edit(Customer customer);
     boolean delete(int id);
-    Customer search(int id,String name);
+    List<Customer> search(int id,String name);
 }

@@ -11,12 +11,21 @@
 <head>
     <title>Furama Resort</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css" />
 </head>
 <body>
 <c:import url="header_navbar.jsp"></c:import>
+<div>
+    <form action="/customer" method="get">
+        <input type="number" placeholder="id" name="id">
+        <input type="text" placeholder="name" name="name">
+        <button class="btn btn-danger" type="submit" name="action" value="search">Search</button>
+    </form>
+</div>
 <p style="color: red">${mess}</p>
 <div>
-    <table class="table table-striped">
+    <table class="table table-striped" id="tableCustomer">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -39,10 +48,10 @@
                 <td scope="col">${customerTypeMap.get(customer.customerTypeId)}</td>
                 <td scope="col">${customer.name}</td>
                 <td scope="col">${customer.dateOfBirth}</td>
-                <c:if test="${customer.gender}">
+                <c:if test="${customer.gender==true}">
                     <td scope="col">Nam</td>
                 </c:if>
-                <c:if test="${!customer.gender}">
+                <c:if test="${customer.gender==false}">
                     <td scope="col">Nữ</td>
                 </c:if>
                 <td scope="col">${customer.idCard}</td>
@@ -93,6 +102,18 @@
         document.getElementById("deleteName").innerText=name;
         document.getElementById("deleteId").value=id;
     }
+</script>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableCustomer').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
 </script>
 </body>
 <script src="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.js"></script>

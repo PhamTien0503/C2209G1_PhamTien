@@ -12,6 +12,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,9 +33,25 @@ public class CustomerServlet extends HttpServlet {
                 showFormCreate(request, response);
             case "edit":
                 showFormEdit(request, response);
+            case "search":
+                search(request, response);
             default:
                 showList(request, response);
-
+        }
+    }
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        List<Customer> customerList=customerService.search(id,name);
+        Map<Integer, String> customerTypeMap = customerTypeService.findAll();
+        request.setAttribute("customerTypeMap", customerTypeMap);
+        request.setAttribute("customerList", customerList);
+        try {
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -130,8 +147,6 @@ public class CustomerServlet extends HttpServlet {
         showFormEdit(request, response);
     }
 
-    //<%--// int id, int customerTypeId, String name, String dateOfBirth, boolean gender, String idCard, --%>
-//<%--//  String phoneNumber, String email, String address--%>
     private void save(HttpServletRequest request, HttpServletResponse response) {
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         String name = request.getParameter("name");

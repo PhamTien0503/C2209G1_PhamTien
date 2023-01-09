@@ -29,8 +29,8 @@
     <p>Date Of Birth</p>
     <input type="date" name="dateOfBirth">
     <p>Gender</p>
-    <input type="radio" name="gender" value="0">Nam
-    <input type="radio" name="gender" value="1">Nữ
+    <input type="radio" name="gender" value="true">Nam
+    <input type="radio" name="gender" value="false">Nu
     <p>ID Card</p>
     <input type="text" name="idCard">
     <p>Phone Number</p>
