@@ -20,5 +20,4 @@
 <c:import url="footer.jsp"></c:import>
 </body>
 <script src="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.js"></script>
-
 </html>

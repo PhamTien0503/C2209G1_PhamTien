@@ -108,6 +108,12 @@ foreign key (attach_facility_id) references attach_facility(id),
 quantity int
 );
 
+select * from customer_type;
+select * from customer;
+
+select c.*, ct.id as customer_type_id, ct.name from customer c
+join customer_type ct on c.customer_type_id=ct.id;
+
 
 
 
