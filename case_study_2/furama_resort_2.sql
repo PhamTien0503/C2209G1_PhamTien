@@ -114,6 +114,58 @@ select * from customer;
 select c.*, ct.id as customer_type_id, ct.name from customer c
 join customer_type ct on c.customer_type_id=ct.id;
 
+insert into customer ( customer_type_id,name ,date_of_birth ,gender ,id_card ,phone_number ,email ,address)
+values (1,'Sy', '1994-01-01',1,'02222334445','0383561453','phatien@gmail.com','Da nang');
+
+select * from customer c;
+
+
+update customer c set c.customer_type_id=2, c.name='The', c.date_of_birth='1994-02-01', c.gender=1, c.id_card='03203023', c.phone_number='123123213',c.email='12321312',c.address='fasfadfsdaf'where c.id=2;
+
+delete from customer where id=11;
+
+select * from customer where id=2 and name like '%The%';
+
+select * from facility_type;
+
+insert into facility (name ,area ,cost,max_people ,standard_room ,
+description_other_convenience ,pool_area ,number_of_floors ,facility_free ,rent_type_id ,facility_type_id)
+values 
+  (
+    'Villa Beach Front', 25000, 1000000, 
+    10, 'vip', 'Có hồ bơi', 500, 4, 
+    null, 3, 1
+  ), 
+  (
+    'House Princess 01', 14000, 5000000, 
+    7, 'vip', 'Có thêm bếp nướng', 
+    null, 3, null, 2, 2
+  ), 
+  (
+    'Room Twin 01', 5000, 1000000, 2, 
+    'normal', 'Có tivi', null, null, 
+    '1 Xe máy, 1 Xe đạp', 4, 3
+  ), 
+  (
+   'Villa No Beach Front', 22000, 
+    9000000, 8, 'normal', 'Có hồ bơi', 
+    300, 3, null, 3, 1
+  ), 
+  (
+    'House Princess 02', 10000, 4000000, 
+    5, 'normal', 'Có thêm bếp nướng', 
+    null, 2, null, 3, 2
+  ), 
+  (
+    'Room Twin 02', 3000, 900000, 2, 
+    'normal', 'Có tivi', null, null, 
+    '1 Xe máy', 4, 3
+  );
+
+select * from rent_type;
+
+select * from facility;
+
 
 
 
