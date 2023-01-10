@@ -15,5 +15,5 @@ public interface IFacilityService {
 
     boolean delete(int id);
 
-    List<Facility> search(int id, String name);
+    List<Facility> search(String idSearch, String name);
 }

@@ -33,11 +33,12 @@ public class Facility {
         this.numberOfFloors = numberOfFloors;
         this.facilityFree = facilityFree;
     }
-
-    public Facility(String name, double cost, int maxPeople, int rentTypeId, int facilityTypeId,
+    public Facility( String name, int area, double cost, int maxPeople, int rentTypeId, int facilityTypeId,
                     String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors,
                     String facilityFree) {
+
         this.name = name;
+        this.area = area;
         this.cost = cost;
         this.maxPeople = maxPeople;
         this.rentTypeId = rentTypeId;
@@ -48,6 +49,7 @@ public class Facility {
         this.numberOfFloors = numberOfFloors;
         this.facilityFree = facilityFree;
     }
+
 
     public int getId() {
         return id;

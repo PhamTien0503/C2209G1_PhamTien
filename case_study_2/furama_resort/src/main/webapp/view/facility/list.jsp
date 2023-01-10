@@ -13,6 +13,8 @@
     <meta charset="UTF-8">
     <title>Facility</title>
     <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css" />
     <style>
         p {
             margin: 0 auto;
@@ -72,9 +74,10 @@
                                 </li>
                             </ul>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        <form class="d-flex" method="get" action="/facility">
+                            <input class="form-control me-2" type="text" placeholder="Name" aria-label="Search" name="name" value="">
+                            <input class="form-control me-2" type="text" placeholder="Id" aria-label="Search" name="id" value="">
+                            <button class="btn btn-outline-success" type="submit" name="action" value="search">Search</button>
                         </form>
                     </div>
                 </div>
@@ -83,7 +86,8 @@
     </div>
     <h1 style="text-align: center"> Facility List </h1>
     <div>
-        <table class="table table-striped">
+        <p style="color: red">${mess}</p>
+        <table class="table table-striped" id="facilityTable">
             <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -118,17 +122,41 @@
                 <td>${facility.numberOfFloors}</td>
                 <td>${facility.facilityFree}</td>
                 <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-outline-primary"><a href="/facility?action=edit&id=${facility.id}">Edit</a></button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button onclick="infoDelete('${facility.id}','${facility.name}')" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                    </button>
                 </td>
             </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
-    <button type="button" class="btn btn-warning">ADD FACILITY</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/facility" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" id="deleteId" name="id">
+                        <span>Ban co muon xoa dich vu</span>
+                        <span id="deleteName"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="action" value="delete">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-success m-2"><a href="/facility?action=create">ADD FACILITY</a></button>
     <div class="row bg-success">
         <div class="col-md-6">
             <h3> Liên hệ</h3>
@@ -155,6 +183,24 @@
         </div>
     </div>
 </div>
+<script>
+    function infoDelete(id,name){
+        document.getElementById("deleteName").innerText=name;
+        document.getElementById("deleteId").value=id;
+    }
+</script>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#facilityTable').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+</script>
 </body>
 <script src="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.js"></script>
 </html>
