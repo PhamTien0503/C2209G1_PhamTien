@@ -87,7 +87,8 @@
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name Facility</label>
-          <input type="text" class="form-control" id="name" name="name">
+          <input type="text" class="form-control" id="name" name="name" required pattern="^([A-Z][a-z]+ )+\d*$"
+                 title="Tên dịch vụ được phép chứa số và các kí tự đầu tiên của mỗi từ phải viết hoa.">
         </div>
 
         <div class="mb-3">
@@ -97,7 +98,7 @@
 
         <div class="mb-3">
           <label for="cost" class="form-label">Cost</label>
-          <input type="number" class="form-control" id="cost" name="cost">
+          <input type="number" class="form-control" id="cost" name="cost"  required pattern="^[1-9]\d*[.]?\d+$" title="Lương, Giá, Tiền đặt cọc phải là số dương.">
         </div>
 
         <div class="mb-3" id="maxPeople1">
@@ -142,7 +143,7 @@
 
         <div class="mb-3" id="numberOfFloors1">
           <label for="numberOfFloors" class="form-label">Number Of Floors</label>
-          <input type="number" class="form-control" id="numberOfFloors" name="numberOfFloors" value="0">
+          <input type="number" class="form-control" id="numberOfFloors" name="numberOfFloors" value="0" required pattern="^[1-9]\d*$" title="Số lượng, Số tầng phải là số nguyên dương.">
         </div>
 
         <div class="mb-3" id="facilityFree1">

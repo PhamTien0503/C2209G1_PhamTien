@@ -23,7 +23,6 @@ public class CustomerTypeRepository implements repository.ICustomerTypeRepositor
             while (resultSet.next()){
                 int id=resultSet.getInt("id");
                 String name=resultSet.getString("name");
-                CustomerType customerType=new CustomerType(id,name);
                 customerTypeMap.put(id,name);
             }
         } catch (SQLException e) {
